@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <h1>Shopping Cart</h1>
+
+    <!-- Cart Items -->
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+            <p>{{ item.product.name }}</p>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Price: ${{ item.product.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Cart Total -->
+    <div class="cart-total">
+        <h2>Total: ${{ cart_total }}</h2>
+    </div>
+
+    <!-- Proceed to Checkout Button -->
+    <button id="checkout-btn">Proceed to Checkout</button>
+
+    <!-- JavaScript to handle checkout functionality -->
+    <script>
+        const checkoutButton = document.getElementById('checkout-btn');
+
+        checkoutButton.addEventListener('click', function() {
+            // You can implement logic here to handle the checkout process
+            // For example, redirect the user to the checkout page or show a modal for payment
+            // You might want to integrate with payment gateways like Stripe for actual payment processing
+            alert('Redirecting to checkout...');
+        });
+    </script>
+</body>
+
+</html>
